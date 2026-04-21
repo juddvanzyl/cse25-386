@@ -1,38 +1,69 @@
-
 body {
-   font-family: Arial, sans-serif;
+   font-family: 'Poppins', sans-serif;
+   background: #000;
+   color: white;
 }
 
-/* HERO SECTION */
+/* NAVBAR */
+.navbar {
+   background: rgba(0,0,0,0.8);
+}
+
+/* HERO */
 .hero {
-   background: url('https://via.placeholder.com/1200x500') center/cover no-repeat;
-   height: 80vh;
+   height: 100vh;
+   background: url('https://via.placeholder.com/1200x700') center/cover no-repeat;
+   position: relative;
+}
+
+.overlay {
+   background: rgba(0,0,0,0.6);
+   height: 100%;
    display: flex;
    align-items: center;
    justify-content: center;
 }
 
 .hero h1 {
-   font-size: 60px;
-   font-weight: bold;
+   font-size: 70px;
+   font-weight: 600;
 }
 
-.hero p {
-   font-size: 20px;
-}
-
-/* PRODUCT CARDS */
+/* PRODUCT */
 .product-card {
-   transition: transform 0.3s;
+   background: #111;
+   border: none;
+   transition: 0.4s;
 }
 
 .product-card:hover {
-   transform: scale(1.05);
+   transform: translateY(-10px);
 }
 
 /* BUTTON */
-.btn {
-   border-radius: 30px;
+.btn-dark {
+   background: white;
+   color: black;
+   border: none;
 }
 
+/* ANIMATIONS */
+.fade-in {
+   opacity: 0;
+   animation: fadeIn 2s forwards;
+}
 
+@keyframes fadeIn {
+   to { opacity: 1; }
+}
+
+.reveal {
+   opacity: 0;
+   transform: translateY(40px);
+   transition: 1s;
+}
+
+.reveal.active {
+   opacity: 1;
+   transform: translateY(0);
+}
