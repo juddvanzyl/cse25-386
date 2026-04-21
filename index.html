@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,113 +6,96 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>696 Dept</title>
 
-<!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+<div id="loader">696 Dept</div>
+
+<nav class="navbar navbar-expand-lg fixed-top">
 <div class="container">
-<a class="navbar-brand" href="#">696 Dept</a>
+<a class="navbar-brand fw-bold" href="#">696 Dept</a>
 
-<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
-<span class="navbar-toggler-icon"></span>
-</button>
-
-<div class="collapse navbar-collapse" id="navMenu">
-<ul class="navbar-nav ms-auto">
-<li><a class="nav-link" href="#home">Home</a></li>
-<li><a class="nav-link" href="#about">About</a></li>
-<li><a class="nav-link" href="#products">Shop</a></li>
-<li><a class="nav-link" href="#contact">Contact</a></li>
-<li><a class="nav-link" href="#" onclick="viewCart()">Cart 🛒 (<span id="cart-count">0</span>)</a></li>
-</ul>
+<div>
+<button class="btn btn-sm btn-outline-light me-2" onclick="toggleMode()">🌙</button>
+<button class="btn btn-sm btn-outline-light" onclick="toggleCart()">🛒 <span id="cart-count">0</span></button>
 </div>
 </div>
 </nav>
 
 <!-- HERO -->
-<section id="home" class="hero">
-<div class="overlay">
-<div class="content text-center">
-<h1 class="fade-in">696 Dept</h1>
-<p class="fade-in">Minimal. Bold. Street.</p>
-<a href="#products" class="btn btn-outline-light mt-3">Shop Now</a>
-</div>
-</div>
-</section>
+<section class="hero">
+<video autoplay muted loop>
+<source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+</video>
 
-<!-- ABOUT -->
-<section id="about" class="container py-5 text-center reveal">
-<h2>About</h2>
-<p>696 Dept represents confidence, identity, and modern street culture. Designed for those who move different.</p>
+<div class="overlay text-center">
+<h1 class="fw-bold">696 Dept</h1>
+<p class="lead">Built for those who move different</p>
+<a href="#products" class="btn btn-light px-4 mt-3">Shop Now</a>
+</div>
 </section>
 
 <!-- PRODUCTS -->
-<section id="products" class="py-5 bg-dark text-white">
-<div class="container text-center">
-<h2 class="mb-4">Shop</h2>
+<section id="products" class="container py-5 text-center">
+<h2 class="mb-4 fw-bold">Latest Drops</h2>
 
-<div class="row">
+<div class="row g-4">
 
-<div class="col-md-4 reveal">
+<div class="col-md-4">
 <div class="card product-card">
-<img src="https://via.placeholder.com/300">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
 <div class="card-body">
-<h5>Black Tee</h5>
+<h5>Black Essential Tee</h5>
 <p>P150</p>
-<button class="btn btn-dark" onclick="addToCart('Black Tee')">Add to Cart</button>
+<button onclick="addToCart('Black Tee',150)" class="btn btn-dark w-100">Add to Cart</button>
 </div>
 </div>
 </div>
 
-<div class="col-md-4 reveal">
+<div class="col-md-4">
 <div class="card product-card">
-<img src="https://via.placeholder.com/300">
+<img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb">
 <div class="card-body">
-<h5>White Tee</h5>
+<h5>White Minimal Tee</h5>
 <p>P180</p>
-<button class="btn btn-dark" onclick="addToCart('White Tee')">Add to Cart</button>
+<button onclick="addToCart('White Tee',180)" class="btn btn-dark w-100">Add to Cart</button>
 </div>
 </div>
 </div>
 
-<div class="col-md-4 reveal">
+<div class="col-md-4">
 <div class="card product-card">
-<img src="https://via.placeholder.com/300">
+<img src="https://images.unsplash.com/photo-1520975916090-3105956dac38">
 <div class="card-body">
-<h5>Oversized Tee</h5>
+<h5>Oversized Street Tee</h5>
 <p>P200</p>
-<button class="btn btn-dark" onclick="addToCart('Oversized Tee')">Add to Cart</button>
+<button onclick="addToCart('Oversized Tee',200)" class="btn btn-dark w-100">Add to Cart</button>
 </div>
 </div>
 </div>
 
-</div>
 </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="container py-5 text-center reveal">
-<h2>Contact</h2>
-<input type="text" id="name" class="form-control my-2" placeholder="Your Name">
-<input type="email" id="email" class="form-control my-2" placeholder="Your Email">
-<button class="btn btn-dark" onclick="submitForm()">Submit</button>
-</section>
+<!-- CART -->
+<div id="cart">
+<h4>Your Cart</h4>
+<ul id="cart-items"></ul>
+<p class="fw-bold">Total: P<span id="total">0</span></p>
+<button class="btn btn-dark w-100 mt-2">Checkout</button>
+</div>
 
-<footer class="text-center p-3 bg-black text-white">
-<p>© 2026 696 Dept</p>
+<!-- FOOTER -->
+<footer class="text-center">
+<p>© 2026 696 Dept | Streetwear Brand</p>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
-
 </body>
 </html>
+
