@@ -8,14 +8,16 @@
 <!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Custom CSS -->
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-black">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
 <div class="container">
 <a class="navbar-brand" href="#">696 Dept</a>
 
@@ -25,87 +27,90 @@
 
 <div class="collapse navbar-collapse" id="navMenu">
 <ul class="navbar-nav ms-auto">
-<li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-<li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
-<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+<li><a class="nav-link" href="#home">Home</a></li>
+<li><a class="nav-link" href="#about">About</a></li>
+<li><a class="nav-link" href="#products">Shop</a></li>
+<li><a class="nav-link" href="#contact">Contact</a></li>
+<li><a class="nav-link" href="#" onclick="viewCart()">Cart 🛒 (<span id="cart-count">0</span>)</a></li>
 </ul>
 </div>
 </div>
 </nav>
 
 <!-- HERO -->
-<section id="home" class="hero text-center text-white">
-<div class="container">
-<h1>696 Dept</h1>
-<p>Streetwear for the Bold</p>
-<button class="btn btn-light mt-3" onclick="showMessage()">Shop Now</button>
+<section id="home" class="hero">
+<div class="overlay">
+<div class="content text-center">
+<h1 class="fade-in">696 Dept</h1>
+<p class="fade-in">Minimal. Bold. Street.</p>
+<a href="#products" class="btn btn-outline-light mt-3">Shop Now</a>
+</div>
 </div>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="container text-center py-5">
-<h2>About Us</h2>
-<p>696 Dept is a modern streetwear brand focused on minimal, bold fashion that represents confidence and identity.</p>
+<section id="about" class="container py-5 text-center reveal">
+<h2>About</h2>
+<p>696 Dept represents confidence, identity, and modern street culture. Designed for those who move different.</p>
 </section>
 
 <!-- PRODUCTS -->
-<section id="products" class="bg-light py-5">
+<section id="products" class="py-5 bg-dark text-white">
 <div class="container text-center">
-<h2>Products</h2>
+<h2 class="mb-4">Shop</h2>
 
-<div class="row mt-4">
-<div class="col-md-4">
+<div class="row">
+
+<div class="col-md-4 reveal">
 <div class="card product-card">
-<img src="https://via.placeholder.com/300" class="card-img-top">
+<img src="https://via.placeholder.com/300">
 <div class="card-body">
 <h5>Black Tee</h5>
 <p>P150</p>
+<button class="btn btn-dark" onclick="addToCart('Black Tee')">Add to Cart</button>
 </div>
 </div>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-4 reveal">
 <div class="card product-card">
-<img src="https://via.placeholder.com/300" class="card-img-top">
+<img src="https://via.placeholder.com/300">
 <div class="card-body">
 <h5>White Tee</h5>
 <p>P180</p>
+<button class="btn btn-dark" onclick="addToCart('White Tee')">Add to Cart</button>
 </div>
 </div>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-4 reveal">
 <div class="card product-card">
-<img src="https://via.placeholder.com/300" class="card-img-top">
+<img src="https://via.placeholder.com/300">
 <div class="card-body">
 <h5>Oversized Tee</h5>
 <p>P200</p>
-</div>
+<button class="btn btn-dark" onclick="addToCart('Oversized Tee')">Add to Cart</button>
 </div>
 </div>
 </div>
 
+</div>
 </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="container text-center py-5">
+<section id="contact" class="container py-5 text-center reveal">
 <h2>Contact</h2>
 <input type="text" id="name" class="form-control my-2" placeholder="Your Name">
 <input type="email" id="email" class="form-control my-2" placeholder="Your Email">
 <button class="btn btn-dark" onclick="submitForm()">Submit</button>
 </section>
 
-<!-- FOOTER -->
-<footer class="bg-black text-white text-center p-3">
+<footer class="text-center p-3 bg-black text-white">
 <p>© 2026 696 Dept</p>
 </footer>
 
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Custom JS -->
 <script src="script.js"></script>
 
 </body>
