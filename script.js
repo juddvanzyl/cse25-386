@@ -1,44 +1,39 @@
+// LOADER
+window.onload = () => {
+   setTimeout(() => {
+       document.getElementById("loader").style.display = "none";
+   }, 1200);
+};
 
-// CART SYSTEM
-let cart = [];
+let total = 0;
 
-function addToCart(item) {
-   cart.push(item);
-   document.getElementById("cart-count").innerText = cart.length;
-   alert(item + " added to cart 🛒");
+// ADD TO CART
+function addToCart(name, price) {
+   total += price;
+
+   document.getElementById("cart-count").innerText++;
+   document.getElementById("total").innerText = total;
+
+   let li = document.createElement("li");
+   li.innerHTML = `${name} - P${price} <button onclick="removeItem(this, ${price})">❌</button>`;
+   document.getElementById("cart-items").appendChild(li);
 }
 
-function viewCart() {
-   if (cart.length === 0) {
-       alert("Cart is empty");
-   } else {
-       alert("Cart:\n" + cart.join("\n"));
-   }
+// REMOVE ITEM
+function removeItem(button, price) {
+   button.parentElement.remove();
+   total -= price;
+
+   document.getElementById("cart-count").innerText--;
+   document.getElementById("total").innerText = total;
 }
 
-// FORM
-function submitForm() {
-   let name = document.getElementById("name").value;
-   let email = document.getElementById("email").value;
-
-   if (name === "" || email === "") {
-       alert("Fill in all fields");
-   } else {
-       alert("Thanks " + name + " 🔥");
-   }
+// TOGGLE CART
+function toggleCart() {
+   document.getElementById("cart").classList.toggle("active");
 }
 
-// SCROLL ANIMATION
-window.addEventListener("scroll", () => {
-   let reveals = document.querySelectorAll(".reveal");
-
-   reveals.forEach(el => {
-       let top = el.getBoundingClientRect().top;
-       let windowHeight = window.innerHeight;
-
-       if (top < windowHeight - 100) {
-           el.classList.add("active");
-       }
-   });
-});
-
+// MODE
+function toggleMode() {
+   document.body.classList.toggle("light-mode");
+}
