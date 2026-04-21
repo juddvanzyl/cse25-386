@@ -1,1 +1,38 @@
 
+body {
+   font-family: Arial, sans-serif;
+}
+
+/* HERO SECTION */
+.hero {
+   background: url('https://via.placeholder.com/1200x500') center/cover no-repeat;
+   height: 80vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.hero h1 {
+   font-size: 60px;
+   font-weight: bold;
+}
+
+.hero p {
+   font-size: 20px;
+}
+
+/* PRODUCT CARDS */
+.product-card {
+   transition: transform 0.3s;
+}
+
+.product-card:hover {
+   transform: scale(1.05);
+}
+
+/* BUTTON */
+.btn {
+   border-radius: 30px;
+}
+
+
