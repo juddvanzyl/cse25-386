@@ -1,16 +1,22 @@
-<section class="cart">
-  <h2>Your Cart</h2>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cart</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
 
-  <div class="cart-item">
-    <div class="image"></div>
-    <div class="details">
-      <p>Product Name</p>
-      <p>P299</p>
-    </div>
-  </div>
+<body onload="displayCart()">
 
-  <div class="total">
-    <p>Total: P648</p>
-    <button>Checkout</button>
-  </div>
-</section>
+<div class="container mt-5">
+<h2>Your Cart</h2>
+
+<div id="cart-items"></div>
+
+<h3>Total: <span id="total"></span></h3>
+
+<a href="checkout.html" class="btn btn-main">Checkout</a>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
