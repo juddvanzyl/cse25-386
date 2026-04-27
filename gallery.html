@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lookbook — 696 DEPT</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .gallery-page { padding: 40px 0 80px; }
+
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .gallery-header h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 56px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .gallery-header p {
+      font-size: 15px;
+      color: var(--mid-gray);
+    }
+
+    /* ─── Masonry Grid ─── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 240px;
+      gap: 16px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .gallery-item.tall { grid-row: span 2; }
+    .gallery-item.wide { grid-column: span 2; }
+
+    .gallery-bg {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .gallery-item:hover .gallery-bg { transform: scale(1.04); }
+
+    .gallery-bg-dark { background: #111; }
+    .gallery-bg-mid { background: #222; }
+    .gallery-bg-light { background: #333; }
+    .gallery-bg-grey { background: #555; }
+    .gallery-bg-offwhite { background: #e5e5e5; }
+
+    .gallery-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      color: rgba(255,255,255,0.08);
+      font-size: 80px;
+      user-select: none;
+    }
+
+    .gallery-bg-offwhite .gallery-num { color: rgba(0,0,0,0.06); }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0);
+      transition: background 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+    }
+
+    .gallery-item:hover .gallery-overlay { background: rgba(0,0,0,0.45); }
+
+    .gallery-caption {
+      color: white;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all 0.3s;
+    }
+
+    .gallery-item:hover .gallery-caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery-caption-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .gallery-caption-sub {
+      font-size: 12px;
+      opacity: 0.7;
+    }
+
+    /* ─── Campaign Banner ─── */
+    .campaign-banner {
+      background: var(--black);
+      color: var(--white);
+      padding: 80px 0;
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    .campaign-banner h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 52px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .campaign-banner p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 28px;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item.wide { grid-column: span 1; }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item.tall { grid-row: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <div class="gallery-page">
+    <div class="breadcrumb container">
+      <a href="index.html">Home</a> / <span>Lookbook</span>
+    </div>
+
+    <div class="container">
+      <div class="gallery-header">
+        <h1>Lookbook</h1>
+        <p>Campaign visuals, outfit drops, and culture shots.</p>
+      </div>
+
+      <div class="gallery-grid">
+
+        <div class="gallery-item tall">
+          <div class="gallery-bg gallery-bg-dark">
+            <span class="gallery-num">696</span>
+          </div>
+          <div class="gallery-overlay">
+            <div class="gallery-caption">
+              <p class="gallery-caption-title">Drop 01 Campaign</p>
+              <p class="gallery-caption-sub">Bold 696 Tee · Black</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-bg gallery-bg-offwhite">
+            <span class="gallery-num" style="color:rgba(0,0,0,0.08)">696</span>
+          </div>
+          <div class="gallery-overlay">
+            <div class="gallery-caption">
+              <p class="gallery-caption-title">Classic White</p>
+              <p class="gallery-caption-sub">Classic 696 Tee · White</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-bg gallery-bg-grey">
+            <span class="gallery-num">DEPT</span>
+          </div>
+          <div class="gallery-overlay">
+            <div class="gallery-caption">
+              <p class="gallery-caption-title">Street Style</p>
+              <p class="gallery-caption-sub">Core Tee · Grey</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item wide">
+          <div class="gallery-bg gallery-bg-mid">
+            <span class="gallery-num" style="font-size:120px">696 DEPT</span>
+          </div>
+          <div class="gallery-overlay">
+            <div class="gallery-caption">
+              <p class="gallery-caption-title">The Movement</p>
+              <p class="gallery-caption-sub">Gaborone, Botswana · 2025</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-bg gallery-bg-light">
+            <span class="gallery-num">696</span>
+          </div>
+          <div class="gallery-overlay">
+            <div class="gallery-caption">
+              <p class="gallery-caption-title">Limited Drop</p>
+              <p class="gallery-caption-sub">Splatter Tee · White</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item tall">
+          <div class="gallery-bg gallery-bg-dark">
+            <span class="gallery-num">DEPT</span>
+          </div>
+          <div class="gallery-overlay">
+            <div class="gallery-caption">
+              <p class="gallery-caption-title">Heritage Series</p>
+              <p class="gallery-caption-sub">Heritage Tee · Black</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-bg gallery-bg-grey">
+            <span class="gallery-num">696</span>
+          </div>
+          <div class="gallery-overlay">
+            <div class="gallery-caption">
+              <p class="gallery-caption-title">Global Vision</p>
+              <p class="gallery-caption-sub">Global Tee · Black</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-bg gallery-bg-mid">
+            <span class="gallery-num">WWD</span>
+          </div>
+          <div class="gallery-overlay">
+            <div class="gallery-caption">
+              <p class="gallery-caption-title">Worldwide</p>
+              <p class="gallery-caption-sub">Worldwide Tee · White</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ─── Campaign Banner ─── -->
+    <div class="campaign-banner">
+      <div class="container">
+        <h2>New Drop Coming Soon.</h2>
+        <p>Sign up to be the first to know.</p>
+        <div style="display:flex;gap:0;max-width:400px;margin:0 auto">
+          <input type="email" class="form-control" placeholder="your@email.com" style="flex:1;border-right:none">
+          <button class="btn btn-primary" style="white-space:nowrap">Notify Me</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
