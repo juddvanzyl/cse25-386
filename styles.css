@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #0f0f0f;
+  color: white;
+}
+
+.navbar {
+  background-color: black;
+}
+
+.hero {
+  background: url('../images/banner.jpg') center/cover no-repeat;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.card {
+  background-color: #1a1a1a;
+  border: none;
+}
+
+.btn-primary {
+  background-color: #ff0033;
+  border: none;
+}
+
+footer {
+  background: black;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+}
