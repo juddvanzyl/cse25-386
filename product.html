@@ -1,26 +1,346 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Product</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product — 696 DEPT</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .product-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      padding: 40px 0 80px;
+    }
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
-<script src="js/script.js"></script>
+    /* ─── Image Gallery ─── */
+    .product-gallery {}
+
+    .main-image {
+      aspect-ratio: 1 / 1.1;
+      background: #111;
+      overflow: hidden;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-in;
+    }
+
+    .main-image.light { background: #f0f0f0; }
+
+    .main-image-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 100px;
+      font-weight: 900;
+      color: rgba(255,255,255,0.25);
+      user-select: none;
+    }
+
+    .main-image.light .main-image-text { color: rgba(0,0,0,0.1); }
+
+    .thumb-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .thumb {
+      width: 76px;
+      height: 76px;
+      background: #111;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .thumb.active { border-color: var(--black); }
+    .thumb:hover { border-color: var(--mid-gray); }
+
+    .thumb-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px;
+      font-weight: 900;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ─── Product Info ─── */
+    .product-info {}
+
+    .product-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 36px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 8px;
+    }
+
+    .product-price {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .product-desc {
+      font-size: 14px;
+      color: var(--dark-gray);
+      line-height: 1.7;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 28px;
+    }
+
+    .option-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    /* ─── Size Buttons ─── */
+    .size-buttons {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .size-btn {
+      width: 44px;
+      height: 44px;
+      border: 1.5px solid var(--border);
+      background: none;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .size-btn:hover { border-color: var(--black); }
+    .size-btn.active {
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--black);
+    }
+
+    /* ─── Color Buttons ─── */
+    .color-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .color-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .color-btn.active { border-color: var(--black); outline: 2px solid transparent; }
+    .color-btn:hover { border-color: var(--mid-gray); }
+
+    /* ─── Quantity ─── */
+    .qty-row {
+      margin-bottom: 24px;
+    }
+
+    /* ─── CTA Buttons ─── */
+    .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    /* ─── Description Section ─── */
+    .product-desc-section {
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+
+    .desc-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .desc-text {
+      font-size: 13px;
+      color: var(--dark-gray);
+      line-height: 1.8;
+    }
+
+    @media (max-width: 768px) {
+      .product-layout { grid-template-columns: 1fr; gap: 32px; }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="container mt-5">
-  <h2>Graphic Tee</h2>
-  <img src="images/shirt1.jpg" class="img-fluid">
-  <p>High quality streetwear t-shirt</p>
-  <h4>P250</h4>
+  <div id="nav-placeholder"></div>
 
-  <button onclick="addToCart('Graphic Tee',250)" class="btn btn-primary">
-    Add to Cart
-  </button>
-</div>
+  <div class="container">
+    <div class="breadcrumb" id="breadcrumb">
+      <a href="index.html">Home</a> / <a href="shop.html">Shop</a> / <span id="bc-name">Product</span>
+    </div>
 
+    <div class="product-layout">
+
+      <!-- ─── GALLERY ─── -->
+      <div class="product-gallery">
+        <div class="main-image" id="mainImage">
+          <span class="main-image-text">696</span>
+        </div>
+        <div class="thumb-row" id="thumbRow">
+          <div class="thumb active"><span class="thumb-text">696</span></div>
+          <div class="thumb"><span class="thumb-text" style="color:rgba(0,0,0,0.2)">696</span></div>
+          <div class="thumb"><span class="thumb-text">696</span></div>
+          <div class="thumb"><span class="thumb-text">696</span></div>
+          <div class="thumb"><span class="thumb-text" style="font-size:16px;font-weight:900;letter-spacing:0.05em">696</span></div>
+        </div>
+      </div>
+
+      <!-- ─── INFO ─── -->
+      <div class="product-info">
+        <h1 class="product-name" id="productName">Bold 696 Tee</h1>
+        <p class="product-price" id="productPrice">P299</p>
+        <p class="product-desc" id="productDesc">
+          This streetwear tee is made for everyday comfort and bold expression.
+          High quality, 100% Cotton.
+        </p>
+
+        <!-- Size -->
+        <span class="option-label">Size</span>
+        <div class="size-buttons" id="sizeBtns">
+          <button class="size-btn" data-size="S">S</button>
+          <button class="size-btn active" data-size="M">M</button>
+          <button class="size-btn" data-size="L">L</button>
+          <button class="size-btn" data-size="XL">XL</button>
+          <button class="size-btn" data-size="XXL">XXL</button>
+        </div>
+
+        <!-- Color -->
+        <span class="option-label">Color</span>
+        <div class="color-buttons" id="colorBtns">
+          <button class="color-btn active" style="background:#111" data-color="Black" title="Black"></button>
+          <button class="color-btn" style="background:#f5f5f5;border:1px solid #ddd" data-color="White" title="White"></button>
+          <button class="color-btn" style="background:#888" data-color="Grey" title="Grey"></button>
+          <button class="color-btn" style="background:#c4a882" data-color="Sand" title="Sand"></button>
+        </div>
+
+        <!-- Quantity -->
+        <div class="qty-row">
+          <span class="option-label">Quantity</span>
+          <div class="qty-control">
+            <button class="qty-btn qty-minus">&#8722;</button>
+            <span class="qty-value">1</span>
+            <button class="qty-btn qty-plus">&#43;</button>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-buttons">
+          <button class="btn btn-primary btn-full" id="addToCartBtn">Add to Cart</button>
+          <button class="btn btn-outline btn-full" id="buyNowBtn">Buy Now</button>
+        </div>
+
+        <!-- Description accordion -->
+        <div class="product-desc-section">
+          <p class="desc-title">Description</p>
+          <p class="desc-text" id="fullDesc">
+            This streetwear tee is made for everyday comfort and bold expression.
+            Premium cotton. Limited drop.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Load product from URL param
+      const params = new URLSearchParams(window.location.search);
+      const id = parseInt(params.get('id') || '1');
+      const product = PRODUCTS.find(p => p.id === id) || PRODUCTS[0];
+
+      document.title = `${product.name} — 696 DEPT`;
+      document.getElementById('productName').textContent = product.name;
+      document.getElementById('productPrice').textContent = `P${product.price}`;
+      document.getElementById('productDesc').textContent = product.description;
+      document.getElementById('fullDesc').textContent = product.description;
+      document.getElementById('bc-name').textContent = product.name;
+
+      // Color variation for main image
+      const mainImg = document.getElementById('mainImage');
+      const isLight = product.colors[0] === 'White';
+      if (isLight) mainImg.classList.add('light');
+
+      // Size selection
+      document.getElementById('sizeBtns').addEventListener('click', e => {
+        const btn = e.target.closest('.size-btn');
+        if (!btn) return;
+        document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+
+      // Color selection
+      document.getElementById('colorBtns').addEventListener('click', e => {
+        const btn = e.target.closest('.color-btn');
+        if (!btn) return;
+        document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const isWhite = btn.dataset.color === 'White';
+        mainImg.classList.toggle('light', isWhite);
+      });
+
+      // Thumbnails
+      document.getElementById('thumbRow').addEventListener('click', e => {
+        const thumb = e.target.closest('.thumb');
+        if (!thumb) return;
+        document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+      });
+
+      // Add to cart
+      document.getElementById('addToCartBtn').addEventListener('click', () => {
+        const size = document.querySelector('.size-btn.active')?.dataset.size || 'M';
+        const color = document.querySelector('.color-btn.active')?.dataset.color || 'Black';
+        const qty = parseInt(document.querySelector('.qty-value').textContent);
+
+        Cart.add({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          size,
+          color,
+          qty
+        });
+      });
+
+      // Buy now
+      document.getElementById('buyNowBtn').addEventListener('click', () => {
+        document.getElementById('addToCartBtn').click();
+        window.location.href = 'checkout.html';
+      });
+    });
+  </script>
 </body>
 </html>
