@@ -1,38 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>696 DEPT</title>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>696 DEPT — Streetwear That Speaks</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ─── Hero ─── */
+    .hero {
+      position: relative;
+      min-height: 540px;
+      background: var(--off-white);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+ 
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(245,245,245,0.95) 45%, transparent 70%);
+      z-index: 1;
+    }
+ 
+    .hero-img {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 60%;
+      object-fit: cover;
+      object-position: center top;
+    }
+ 
+    /* Fallback hero bg when no real image */
+    .hero-img-placeholder {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 60%;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+ 
+    .hero-img-placeholder .big696 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 180px;
+      font-weight: 900;
+      color: rgba(255,255,255,0.07);
+      line-height: 1;
+      user-select: none;
+    }
+ 
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 80px 0;
+    }
+ 
+    .hero-tagline {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(56px, 8vw, 88px);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      margin-bottom: 20px;
+    }
+ 
+    .hero-tagline span { display: block; }
+ 
+    .hero-sub {
+      font-size: 16px;
+      color: var(--dark-gray);
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+ 
+    /* ─── Featured Products ─── */
+    .section-featured {
+      padding: 64px 0;
+    }
+ 
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--black);
+    }
+ 
+    .products-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+ 
+    /* ─── Brand Banner ─── */
+    .brand-strip {
+      background: var(--black);
+      color: var(--white);
+      padding: 64px 0;
+      text-align: center;
+    }
+ 
+    .brand-strip h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+    }
+ 
+    .brand-strip p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 28px;
+    }
+ 
+    /* ─── Product card override for home (larger images) ─── */
+    .featured-tee {
+      background: var(--off-white);
+      overflow: hidden;
+    }
+ 
+    .featured-tee-img {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      background: #f0f0f0;
+      position: relative;
+    }
+ 
+    /* SVG tee placeholder */
+    .tee-svg {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 42px;
+      font-weight: 900;
+      color: rgba(255,255,255,0.6);
+      position: relative;
+    }
+ 
+    .tee-black { background: #111; }
+    .tee-white { background: #f0f0f0; }
+    .tee-white .tee-svg { color: rgba(0,0,0,0.15); }
+ 
+    @media (max-width: 900px) {
+      .products-grid-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .products-grid-4 { grid-template-columns: 1fr; }
+      .hero { min-height: 400px; }
+      .hero-img-placeholder { width: 100%; opacity: 0.3; }
+    }
+  </style>
 </head>
-
 <body>
-
-<nav class="navbar navbar-expand-lg navbar-dark">
-  <div class="container">
-    <a class="navbar-brand">696 DEPT</a>
-    <div>
-      <a href="index.html" class="nav-link d-inline text-white">Home</a>
-      <a href="shop.html" class="nav-link d-inline text-white">Shop</a>
-      <a href="about.html" class="nav-link d-inline text-white">About</a>
-      <a href="contact.html" class="nav-link d-inline text-white">Contact</a>
-      <a href="cart.html" class="nav-link d-inline text-white">Cart</a>
+ 
+  <div id="nav-placeholder"></div>
+ 
+  <!-- ─── HERO ─── -->
+  <section class="hero">
+    <div class="hero-img-placeholder">
+      <div class="big696">696</div>
     </div>
-  </div>
-</nav>
-
-<section class="hero">
-  <div>
-    <h1>WELCOME TO 696</h1>
-    <a href="shop.html" class="btn btn-primary">Shop Now</a>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 696 DEPT</p>
-</footer>
-
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <h1 class="hero-tagline">
+        <span>Simple.</span>
+        <span>Bold.</span>
+        <span>Culture.</span>
+      </h1>
+      <p class="hero-sub">Streetwear that speaks.</p>
+      <a href="shop.html" class="btn btn-primary">Shop Now</a>
+    </div>
+  </section>
+ 
+  <!-- ─── FEATURED T-SHIRTS ─── -->
+  <section class="section-featured">
+    <div class="container">
+      <p class="section-title">Featured T-Shirts</p>
+      <div class="products-grid-4">
+ 
+        <!-- Product 1 -->
+        <a href="product.html?id=1" class="product-card">
+          <div class="product-card-img tee-black">
+            <div class="tee-svg">696</div>
+          </div>
+          <div class="product-card-info">
+            <p class="product-card-name">Bold 696 Tee</p>
+            <p class="product-card-price">P299</p>
+          </div>
+        </a>
+ 
+        <!-- Product 2 -->
+        <a href="product.html?id=2" class="product-card">
+          <div class="product-card-img tee-white">
+            <div class="tee-svg">696</div>
+          </div>
+          <div class="product-card-info">
+            <p class="product-card-name">Classic 696 Tee</p>
+            <p class="product-card-price">P299</p>
+          </div>
+        </a>
+ 
+        <!-- Product 3 -->
+        <a href="product.html?id=3" class="product-card">
+          <div class="product-card-img tee-black">
+            <div class="tee-svg">696</div>
+          </div>
+          <div class="product-card-info">
+            <p class="product-card-name">Global Tee</p>
+            <p class="product-card-price">P299</p>
+          </div>
+        </a>
+ 
+        <!-- Product 4 -->
+        <a href="product.html?id=4" class="product-card">
+          <div class="product-card-img tee-white">
+            <div class="tee-svg">696</div>
+          </div>
+          <div class="product-card-info">
+            <p class="product-card-name">Splatter 696 Tee</p>
+            <p class="product-card-price">P299</p>
+          </div>
+        </a>
+ 
+      </div>
+    </div>
+  </section>
+ 
+  <!-- ─── BRAND STRIP ─── -->
+  <section class="brand-strip">
+    <div class="container">
+      <h2>Born From The Streets.</h2>
+      <p>Every piece crafted with purpose. Premium fabrics. Limited drops.</p>
+      <a href="about.html" class="btn btn-outline" style="color:white;border-color:white">Our Story</a>
+    </div>
+  </section>
+ 
+  <div id="footer-placeholder"></div>
+ 
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
+ 
