@@ -89,3 +89,42 @@ body {
   color: white;
   margin: 0 10px;
 }
+/* NAVBAR FIX */
+.nav-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* HERO FIX */
+.hero {
+  height: 520px;
+  display: flex;
+  align-items: center;
+  padding-left: 100px;
+}
+
+/* TEXT FIX */
+.hero h1 {
+  font-size: 64px;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 18px;
+}
+
+/* BUTTON FIX */
+.btn-black {
+  background: black;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+}
