@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,17 +14,17 @@ body { font-family: Arial; }
   background:#eee;
   padding:15px 40px;
 }
-.logo-box {
+.logo {
   border:2px solid #000;
   padding:5px 12px;
   font-weight:bold;
 }
-.nav-center a {
+.nav-links a {
   margin:0 15px;
   text-decoration:none;
   color:#000;
 }
-.nav-link.active {
+.active-link {
   border-bottom:2px solid #000;
 }
 
@@ -32,44 +33,20 @@ body { font-family: Arial; }
   border-right:1px solid #ddd;
   padding-right:20px;
 }
-
-/* CATEGORY WITH IMAGE */
-.category-card {
-  margin-bottom:12px;
+.sidebar a {
+  display:block;
+  margin:8px 0;
   cursor:pointer;
-}
-.category-card img {
-  width:100%;
-  height:80px;
-  object-fit:cover;
-  background:#f5f5f5;
-}
-.category-card p {
-  margin:5px 0;
-  font-size:14px;
 }
 
 /* PRODUCTS */
-.product-card {
+.product {
   margin-bottom:25px;
   cursor:pointer;
 }
-.product-card img {
+.product img {
   width:100%;
   background:#f5f5f5;
-}
-
-/* FILTER */
-.filter-section {
-  margin-top:30px;
-}
-.color-box {
-  width:25px;
-  height:25px;
-  display:inline-block;
-  margin-right:8px;
-  border:1px solid #ccc;
-  cursor:pointer;
 }
 
 /* PAGINATION */
@@ -80,9 +57,11 @@ body { font-family: Arial; }
 .pagination-box span {
   margin:0 10px;
   cursor:pointer;
+  padding:5px 10px;
 }
 .pagination-box .active {
   font-weight:bold;
+  border-bottom:2px solid #000;
 }
 
 /* FOOTER */
@@ -98,11 +77,11 @@ footer {
 <body>
 
 <!-- NAV -->
-<div class="navbar d-flex justify-content-between align-items-center">
-  <div class="logo-box">696 DEPT</div>
-  <div class="nav-center">
+<div class="navbar d-flex justify-content-between">
+  <div class="logo">696 DEPT</div>
+  <div class="nav-links">
     <a href="index.html">HOME</a>
-    <a href="shop.html" class="nav-link active">SHOP</a>
+    <a href="shop.html" class="active-link">SHOP</a>
     <a href="about.html">ABOUT</a>
     <a href="#">LOOKBOOK</a>
     <a href="contact.html">CONTACT</a>
@@ -110,91 +89,66 @@ footer {
 </div>
 
 <div class="container mt-4">
-<div class="mb-3">HOME / SHOP</div>
 
-<div class="row">
+<div>HOME / SHOP</div>
+
+<div class="row mt-3">
 
 <!-- SIDEBAR -->
 <div class="col-md-3 sidebar">
-
 <h6>CATEGORIES</h6>
-
-<!-- 🔥 CATEGORY WITH IMAGE -->
-<div class="category-card" onclick="filterCategory('all')">
-  <img src="images/cat-all.jpg">
-  <p>All T-Shirts</p>
-</div>
-
-<div class="category-card" onclick="filterCategory('new')">
-  <img src="images/cat-new.jpg">
-  <p>New Arrivals</p>
-</div>
-
-<div class="category-card" onclick="filterCategory('best')">
-  <img src="images/cat-best.jpg">
-  <p>Best Sellers</p>
-</div>
-
-<div class="category-card" onclick="filterCategory('graphic')">
-  <img src="images/cat-graphic.jpg">
-  <p>Graphic Tees</p>
-</div>
-
-<div class="category-card" onclick="filterCategory('plain')">
-  <img src="images/cat-plain.jpg">
-  <p>Plain Tees</p>
-</div>
-
-<div class="category-card" onclick="filterCategory('limited')">
-  <img src="images/cat-limited.jpg">
-  <p>Limited Edition</p>
-</div>
-
-<hr>
-
-<!-- FILTERS -->
-<div class="filter-section">
-<h6>Price</h6>
-<input type="range" min="0" max="500" value="500" id="priceRange" oninput="filterPrice()">
-<p>P0 — P<span id="priceValue">500</span></p>
-</div>
-
-<div class="filter-section">
-<h6>Size</h6>
-<label><input type="checkbox"> S</label><br>
-<label><input type="checkbox"> M</label><br>
-<label><input type="checkbox"> L</label><br>
-<label><input type="checkbox"> XL</label><br>
-<label><input type="checkbox"> XXL</label>
-</div>
-
-<div class="filter-section">
-<h6>Color</h6>
-<div class="color-box" style="background:black" onclick="setColor('black')"></div>
-<div class="color-box" style="background:white" onclick="setColor('white')"></div>
-<div class="color-box" style="background:gray" onclick="setColor('gray')"></div>
-<div class="color-box" style="background:beige" onclick="setColor('beige')"></div>
-</div>
-
+<a onclick="setCategory('all')">All T-Shirts</a>
+<a onclick="setCategory('graphic')">Graphic Tees</a>
+<a onclick="setCategory('plain')">Plain Tees</a>
 </div>
 
 <!-- PRODUCTS -->
 <div class="col-md-9">
+
 <h3>ALL T-SHIRTS</h3>
 
-<div class="row mt-3">
+<div class="row mt-3" id="products">
 
-<div class="col-md-3 product-card"><img src="images/p1.jpg"><p>Bold Tee</p><b>P299</b></div>
-<div class="col-md-3 product-card"><img src="images/p2.jpg"><p>Classic Tee</p><b>P299</b></div>
-<div class="col-md-3 product-card"><img src="images/p3.jpg"><p>Global Tee</p><b>P299</b></div>
-<div class="col-md-3 product-card"><img src="images/p4.jpg"><p>Splatter Tee</p><b>P299</b></div>
+<!-- PAGE 1 -->
+<div class="col-md-3 product" data-page="1" data-category="plain" onclick="openProduct('p1')">
+<img src="images/p1.jpg"><p>Bold Tee</p><b>P299</b>
+</div>
+
+<div class="col-md-3 product" data-page="1" data-category="plain" onclick="openProduct('p2')">
+<img src="images/p2.jpg"><p>Classic Tee</p><b>P299</b>
+</div>
+
+<div class="col-md-3 product" data-page="1" data-category="graphic" onclick="openProduct('p3')">
+<img src="images/p3.jpg"><p>Global Tee</p><b>P299</b>
+</div>
+
+<div class="col-md-3 product" data-page="1" data-category="graphic" onclick="openProduct('p4')">
+<img src="images/p4.jpg"><p>Splatter Tee</p><b>P299</b>
+</div>
+
+<!-- PAGE 2 -->
+<div class="col-md-3 product" data-page="2" data-category="graphic" onclick="openProduct('p5')">
+<img src="images/p5.jpg"><p>Worldwide Tee</p><b>P299</b>
+</div>
+
+<div class="col-md-3 product" data-page="2" data-category="graphic" onclick="openProduct('p6')">
+<img src="images/p6.jpg"><p>Heritage Tee</p><b>P299</b>
+</div>
+
+<div class="col-md-3 product" data-page="2" data-category="plain" onclick="openProduct('p7')">
+<img src="images/p7.jpg"><p>Core Tee</p><b>P299</b>
+</div>
+
+<div class="col-md-3 product" data-page="2" data-category="graphic" onclick="openProduct('p8')">
+<img src="images/p8.jpg"><p>Back Print</p><b>P299</b>
+</div>
 
 </div>
 
+<!-- PAGINATION -->
 <div class="pagination-box">
-<span class="active">1</span>
-<span>2</span>
-<span>3</span>
+<span onclick="changePage(1)" class="active">1</span>
+<span onclick="changePage(2)">2</span>
 </div>
 
 </div>
@@ -204,18 +158,38 @@ footer {
 <footer>696 DEPT</footer>
 
 <script>
-function filterCategory(cat){
-  console.log("Filtering:", cat);
+
+let currentCategory = "all";
+
+function changePage(page){
+  document.querySelectorAll(".product").forEach(el=>{
+    el.style.display = (el.dataset.page == page) ? "block" : "none";
+  });
+
+  document.querySelectorAll(".pagination-box span").forEach(btn=>{
+    btn.classList.remove("active");
+  });
+
+  document.querySelector(`.pagination-box span:nth-child(${page})`).classList.add("active");
 }
 
-function filterPrice(){
-  let v = document.getElementById("priceRange").value;
-  document.getElementById("priceValue").innerText = v;
+function setCategory(cat){
+  currentCategory = cat;
+
+  document.querySelectorAll(".product").forEach(el=>{
+    let show = (cat === "all" || el.dataset.category === cat);
+    el.style.display = show ? "block" : "none";
+  });
 }
 
-function setColor(c){
-  console.log("Color:", c);
+function openProduct(id){
+  localStorage.setItem("product", id);
+  window.location.href = "product.html";
 }
+
+/* default page */
+changePage(1);
+
 </script>
 
 </body>
