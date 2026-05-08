@@ -1,0 +1,658 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="Order Confirmation - 696 DEPT">
+    <title>Order Confirmation | 696 DEPT</title>
+    
+ 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+ 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f5f5f5;
+            color: #111111;
+        }
+        
+        /* Navigation - Same as homepage */
+        .navbar {
+            background-color: #ffffff;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .container-fluid {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        
+        .left-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        /* RECTANGLE BOX around logo */
+        .navbar-brand {
+            display: inline-block;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #111111 !important;
+            border: 2px solid #111111;
+            padding: 6px 16px;
+            text-decoration: none;
+        }
+        
+        /* Navigation links */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .nav-link {
+            color: #111111 !important;
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            padding: 0.5rem 1rem !important;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .nav-link:hover {
+            color: #888888 !important;
+        }
+        
+        /* Right icons */
+        .right-icons {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .search-btn-header {
+            background: transparent;
+            border: none;
+            color: #111111;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 8px 12px;
+        }
+        
+        .cart-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .cart-icon {
+            font-size: 1.2rem;
+            color: #111111;
+            text-decoration: none;
+            padding: 8px 12px;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: 0px;
+            right: 4px;
+            background-color: #111111;
+            color: #ffffff;
+            border-radius: 50%;
+            min-width: 16px;
+            height: 16px;
+            font-size: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 4px;
+        }
+        
+        .navbar-toggler {
+            display: none;
+            border: none;
+            background: transparent;
+            font-size: 1.5rem;
+        }
+        
+        /* Search Modal */
+        .search-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.95);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .search-modal.active {
+            display: flex;
+        }
+        
+        .search-modal-content {
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+        }
+        
+        .search-modal-input {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.2rem;
+            border: none;
+            border-bottom: 2px solid #ffffff;
+            background: transparent;
+            color: white;
+            outline: none;
+            text-align: center;
+        }
+        
+        .search-modal-input::placeholder {
+            color: #888888;
+        }
+        
+        .close-search {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1.5rem 2rem 0;
+            background: transparent;
+        }
+        
+        .breadcrumb a {
+            color: #111111;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        
+        .breadcrumb span {
+            color: #888888;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        
+        .breadcrumb .separator {
+            margin: 0 0.5rem;
+            color: #aaaaaa;
+        }
+        
+        /* Page Title */
+        .page-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin: 1rem 2rem 2rem;
+            color: #111111;
+        }
+        
+        /* Confirmation Container */
+        .confirmation-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .confirmation-box {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        
+        /* Success Checkmark */
+        .success-checkmark {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .checkmark-circle {
+            width: 80px;
+            height: 80px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: scaleIn 0.3s ease;
+        }
+        
+        .checkmark-circle i {
+            font-size: 2.5rem;
+            color: #ffffff;
+        }
+        
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .thank-you-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            color: #111111;
+        }
+        
+        .order-message {
+            color: #666666;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .order-number {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #111111;
+        }
+        
+        .order-number span {
+            color: #ff3366;
+            font-weight: 700;
+        }
+        
+        .order-email {
+            font-size: 0.8rem;
+            color: #888888;
+            margin-bottom: 2rem;
+        }
+        
+        .continue-btn {
+            background-color: #111111;
+            border: none;
+            color: #ffffff;
+            padding: 12px 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 4px;
+        }
+        
+        .continue-btn:hover {
+            background-color: #333333;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #111111;
+            padding: 2rem 2rem 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            display: inline-block;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #ffffff !important;
+            border: 1px solid #ffffff;
+            padding: 4px 12px;
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: #aaaaaa;
+            text-decoration: none;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+        }
+        
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+        
+        .footer-copyright p {
+            color: #666666;
+            font-size: 0.6rem;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+        
+        /* ========== RESPONSIVE STYLES ========== */
+        @media (max-width: 992px) {
+            .navbar-toggler {
+                display: block;
+                order: 2;
+            }
+            
+            .right-icons {
+                order: 1;
+            }
+            
+            .left-section {
+                order: 0;
+                flex: 1;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 1rem;
+            }
+            
+            .nav-links.show {
+                display: flex;
+            }
+            
+            .nav-link {
+                padding: 0.8rem !important;
+                border-bottom: 1px solid #eeeeee;
+                text-align: center;
+                display: block;
+            }
+            
+            .confirmation-box {
+                padding: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0.8rem 1rem;
+            }
+            
+            .navbar-brand {
+                font-size: 1rem;
+                padding: 4px 12px;
+            }
+            
+            .breadcrumb {
+                padding: 1rem 1rem 0;
+            }
+            
+            .page-title {
+                font-size: 1.4rem;
+                margin: 0.5rem 1rem 1.5rem;
+            }
+            
+            .confirmation-container {
+                padding: 1rem;
+            }
+            
+            .confirmation-box {
+                padding: 1.5rem;
+            }
+            
+            .thank-you-title {
+                font-size: 1.2rem;
+            }
+            
+            .success-checkmark {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .checkmark-circle {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .checkmark-circle i {
+                font-size: 1.8rem;
+            }
+            
+            .footer {
+                padding: 1.5rem 1rem 1rem;
+            }
+            
+            .footer-links {
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .navbar-brand {
+                font-size: 0.85rem;
+                padding: 3px 10px;
+            }
+            
+            .page-title {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+ 
+<nav class="navbar">
+    <div class="container-fluid">
+         
+        <div class="left-section">
+             
+            <a class="navbar-brand" href="index.html">696 DEPT</a>
+            
+             
+            <div class="nav-links" id="navLinks">
+                <a class="nav-link" href="index.html">HOME</a>
+                <a class="nav-link" href="shop.html">SHOP</a>
+                <a class="nav-link" href="about.html">ABOUT</a>
+                <a class="nav-link" href="contact.html">CONTACT</a>
+            </div>
+        </div>
+        
+         
+        <div class="right-icons">
+             
+            <button class="search-btn-header" onclick="openSearchModal()">
+                <i class="fas fa-search"></i>
+            </button>
+            
+             
+            <div class="cart-wrapper">
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+        </div>
+        
+        
+        <button class="navbar-toggler" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+ 
+<div id="searchModal" class="search-modal">
+    <span class="close-search" onclick="closeSearchModal()">&times;</span>
+    <div class="search-modal-content">
+        <input type="text" id="searchInput" class="search-modal-input" placeholder="Search products...">
+        <button onclick="performSearch()" style="margin-top: 20px; background: white; border: none; padding: 10px 30px; cursor: pointer; font-weight: 600;">SEARCH</button>
+    </div>
+</div>
+
+ 
+<div class="breadcrumb">
+    <a href="index.html">HOME</a>
+    <span class="separator">/</span>
+    <a href="checkout.html">CHECKOUT</a>
+    <span class="separator">/</span>
+    <span>ORDER CONFIRMATION</span>
+</div>
+
+
+<h1 class="page-title">ORDER CONFIRMATION</h1>
+
+ 
+<div class="confirmation-container">
+    <div class="confirmation-box">
+         
+        <div class="success-checkmark">
+            <div class="checkmark-circle">
+                <i class="fas fa-check"></i>
+            </div>
+        </div>
+        
+        
+        <h2 class="thank-you-title">THANK YOU!</h2>
+        <p class="order-message">Your order has been placed successfully.</p>
+        
+         
+        <div class="order-number" id="orderNumberDisplay">Order Number: <span>#69612345</span></div>
+        
+       
+        <div class="order-email" id="orderEmailDisplay">A confirmation email has been sent to youremail@example.com</div>
+        
+        
+        <a href="shop.html" class="continue-btn">CONTINUE SHOPPING</a>
+    </div>
+</div>
+
+ 
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <a href="index.html" class="footer-logo">696 DEPT</a>
+        </div>
+        <div class="footer-links">
+            <a href="index.html">HOME</a>
+            <a href="shop.html">SHOP</a>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+        </div>
+        <div class="footer-copyright">
+             <p>© 2025 696 DEPT — BUILT FROM NOTHING</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+  
+    function loadOrderConfirmation() {
+         
+        let order = JSON.parse(localStorage.getItem('lastOrder'));
+        
+         
+        if (!order) {
+            order = JSON.parse(localStorage.getItem('pendingOrder'));
+        }
+        
+         
+        const orderNumberDisplay = document.getElementById('orderNumberDisplay');
+        if (order && order.orderNumber) {
+            orderNumberDisplay.innerHTML = `Order Number: <span>#${order.orderNumber}</span>`;
+        } else if (order && order.orderId) {
+            orderNumberDisplay.innerHTML = `Order Number: <span>#${order.orderId}</span>`;
+        } else {
+            orderNumberDisplay.innerHTML = `Order Number: <span>#696${Math.floor(Math.random() * 100000)}</span>`;
+        }
+        
+        // Display customer email
+        let customerEmail = 'customer@696dept.com';
+        if (order && order.customer && order.customer.email) {
+            customerEmail = order.customer.email;
+        } else if (order && order.email) {
+            customerEmail = order.email;
+        }
+        document.getElementById('orderEmailDisplay').innerHTML = `A confirmation email has been sent to ${customerEmail}`;
+        
+        // Clear cart after successful order
+        localStorage.removeItem('cart');
+        localStorage.removeItem('pendingOrder');
+        
+        // Update cart count in header
+        updateCartCount();
+    }
+    
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const elem = document.getElementById('cartCount');
+        if (elem) elem.innerText = totalItems;
+    }
+    
+    function toggleMobileMenu() {
+        const navLinks = document.getElementById('navLinks');
+        navLinks.classList.toggle('show');
+    }
+    
+    function openSearchModal() {
+        document.getElementById('searchModal').classList.add('active');
+        setTimeout(() => { document.getElementById('searchInput').focus(); }, 100);
+    }
+    
+    function closeSearchModal() {
+        document.getElementById('searchModal').classList.remove('active');
+    }
+    
+    function performSearch() {
+        const term = document.getElementById('searchInput').value.trim();
+        if (term) window.location.href = `shop.html?search=${encodeURIComponent(term)}`;
+        closeSearchModal();
+    }
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeSearchModal();
+    });
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        loadOrderConfirmation();
+    });
+</script>
+</body>
+</html>
