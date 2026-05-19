@@ -3,9 +3,241 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+:root {
+    --black: #111111;
+    --white: #ffffff;
+    --gray: #888888;
+    --light-gray: #f5f5f5;
+    --border: #eaeaea;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #000000;
-    color: #ffffff;
+    background-color: var(--white);
+    color: var(--black);
     overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+.navbar {
+    background-color: rgba(255,255,255,0.96);
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-section {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.navbar-brand {
+    border: 2px solid var(--black);
+    padding: 6px 16px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--black);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--black);
+    font-size: 0.85rem;
+    transition: 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--gray);
+}
+.right-icons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.search-btn-header,
+.cart-icon {
+    border: none;
+    background: transparent;
+    font-size: 1.1rem;
+    color: var(--black);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.search-btn-header:hover,
+.cart-icon:hover {
+    transform: translateY(-2px);
+}
+
+.cart-wrapper {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background: var(--black);
+    color: var(--white);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+}
+.hero {
+    min-height: 100vh;
+    background-image: url('../images/hero-bg.webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 0 8rem;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero h1 {
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.hero .tagline {
+    font-size: 1rem;
+    letter-spacing: 4px;
+    margin-bottom: 2rem;
+    color: #444;
+}
+.btn-shop,
+.btn-primary-custom {
+    display: inline-block;
+    background: var(--black);
+    color: var(--white);
+    padding: 14px 40px;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-shop:hover,
+.btn-primary-custom:hover {
+    background: #333;
+    transform: translateY(-3px);
+}
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.product-item {
+    transition: 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-8px);
+}
+
+.product-image {
+    overflow: hidden;
+}
+
+.product-image img {
+    transition: 0.4s ease;
+}
+
+.product-item:hover img {
+    transform: scale(1.04);
+}
+.footer {
+    background: #000;
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.footer-logo {
+    color: white;
+    border: 1px solid white;
+    padding: 6px 16px;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 1rem;
+    }
+
+    .left-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+    }
+
+    .hero {
+        padding: 0 1.5rem;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
 }
