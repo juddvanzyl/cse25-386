@@ -1,609 +1,453 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <meta name="description" content="About 696 DEPT - Streetwear brand story, mission, and culture">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | 696 DEPT</title>
-    
- 
+
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
- 
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
         }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #ffffff;
-            color: #111111;
+
+        body{
+            font-family:'Montserrat', sans-serif;
+            background:#fff;
+            color:#111;
         }
-        
-        /* Navigation */
-        .navbar {
-            background-color: #ffffff;
-            padding: 1rem 2rem;
-            border-bottom: 1px solid #eaeaea;
+
+        /* NAVBAR */
+
+        .navbar{
+            padding:20px 35px;
+            border-bottom:1px solid #e5e5e5;
+            background:#fff;
         }
-        
-        .container-fluid {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
+
+        .container-fluid{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
         }
-        
-        .left-section {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            flex-wrap: wrap;
+
+        .left-section{
+            display:flex;
+            align-items:center;
+            gap:40px;
         }
-        
-        .navbar-brand {
-            display: inline-block;
-            font-size: 1.3rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: #111111 !important;
-            border: 2px solid #111111;
-            padding: 6px 16px;
-            text-decoration: none;
+
+        .navbar-brand{
+            border:2px solid #111;
+            padding:6px 18px;
+            font-size:1.3rem;
+            font-weight:700;
+            color:#111 !important;
+            text-decoration:none;
         }
-        
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 0.2rem;
-            margin: 0;
-            padding: 0;
-            list-style: none;
+
+        .nav-links{
+            display:flex;
+            gap:20px;
         }
-        
-        .nav-link {
-            color: #111111 !important;
-            font-weight: 500;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
-            padding: 0.5rem 1rem !important;
-            transition: color 0.3s ease;
-            text-decoration: none;
+
+        .nav-link{
+            text-decoration:none;
+            color:#111 !important;
+            font-size:0.9rem;
+            font-weight:500;
+            letter-spacing:1px;
         }
-        
-        .nav-link:hover {
-            color: #888888 !important;
+
+        .nav-link:hover{
+            color:#777 !important;
         }
-        
-        .right-icons {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+
+        .right-icons{
+            display:flex;
+            align-items:center;
+            gap:10px;
         }
-        
-        .search-btn-header {
-            background: transparent;
-            border: none;
-            color: #111111;
-            font-size: 1.2rem;
-            cursor: pointer;
-            padding: 8px 12px;
+
+        .search-btn-header{
+            border:none;
+            background:none;
+            font-size:1.1rem;
+            cursor:pointer;
         }
-        
-        .cart-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
+
+        .cart-icon{
+            color:#111;
+            text-decoration:none;
+            font-size:1.1rem;
         }
-        
-        .cart-icon {
-            font-size: 1.2rem;
-            color: #111111;
-            text-decoration: none;
-            padding: 8px 12px;
+
+        .cart-wrapper{
+            position:relative;
         }
-        
-        .cart-count {
-            position: absolute;
-            top: 0px;
-            right: 4px;
-            background-color: #111111;
-            color: #ffffff;
-            border-radius: 50%;
-            min-width: 16px;
-            height: 16px;
-            font-size: 9px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 4px;
+
+        .cart-count{
+            position:absolute;
+            top:-5px;
+            right:-10px;
+            background:#111;
+            color:#fff;
+            width:16px;
+            height:16px;
+            border-radius:50%;
+            font-size:10px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
         }
-        
-        .navbar-toggler {
-            display: none;
-            border: none;
-            background: transparent;
-            font-size: 1.5rem;
+
+        /* BREADCRUMB */
+
+        .breadcrumb{
+            padding:25px 35px 0;
+            background:none;
         }
-        
-        /* Search Modal */
-        .search-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.95);
-            z-index: 9999;
-            justify-content: center;
-            align-items: center;
+
+        .breadcrumb a,
+        .breadcrumb span{
+            font-size:0.8rem;
+            text-decoration:none;
+            color:#111;
+            font-weight:600;
+            letter-spacing:1px;
         }
-        
-        .search-modal.active {
-            display: flex;
+
+        .separator{
+            margin:0 8px;
         }
-        
-        .search-modal-content {
-            text-align: center;
-            width: 90%;
-            max-width: 600px;
+
+        /* ABOUT SECTION */
+
+        .about-wrapper{
+            width:95%;
+            margin:auto;
+            padding-top:20px;
+            padding-bottom:60px;
         }
-        
-        .search-modal-input {
-            width: 100%;
-            padding: 1rem;
-            font-size: 1.2rem;
-            border: none;
-            border-bottom: 2px solid #ffffff;
-            background: transparent;
-            color: white;
-            outline: none;
-            text-align: center;
+
+        .about-row{
+            display:flex;
+            justify-content:space-between;
+            align-items:flex-start;
+            gap:25px;
+            margin-bottom:60px;
         }
-        
-        .close-search {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
+
+        .about-image-large{
+            width:60%;
         }
-        
-        /* Breadcrumb */
-        .breadcrumb {
-            padding: 1.5rem 2rem 0;
-            background: transparent;
+
+        .about-image-large img{
+            width:100%;
+            height:420px;
+            object-fit:cover;
         }
-        
-        .breadcrumb a {
-            color: #111111;
-            text-decoration: none;
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 1px;
+
+        .about-content-large{
+            width:40%;
+            padding-top:30px;
         }
-        
-        .breadcrumb span {
-            color: #888888;
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 1px;
+
+        .story-title{
+            font-size:2.6rem;
+            font-weight:700;
+            letter-spacing:2px;
+            margin-bottom:25px;
         }
-        
-        .breadcrumb .separator {
-            margin: 0 0.5rem;
-            color: #aaaaaa;
+
+        .story-text{
+            font-size:1.2rem;
+            line-height:1.9;
+            font-weight:600;
+            color:#111;
         }
-        
-        /* About Container - Side by Side Layout */
-        .about-wrapper {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 3rem 2rem 5rem;
+
+        /* SECOND SECTION */
+
+        .mission-box{
+            width:32%;
+            padding-top:30px;
         }
-        
-        /* Row with Image Left, Text Right */
-        .about-row {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-            margin-bottom: 5rem;
-            flex-wrap: wrap;
+
+        .mission-title{
+            font-size:2.6rem;
+            font-weight:700;
+            letter-spacing:2px;
+            margin-bottom:25px;
         }
-        
-        .about-row.reverse {
-            flex-direction: row-reverse;
+
+        .mission-text{
+            font-size:1.2rem;
+            line-height:1.9;
+            font-weight:600;
+            color:#111;
         }
-        
-        .about-image {
-            flex: 1;
-            min-width: 280px;
+
+        .small-img{
+            width:32%;
         }
-        
-        .about-image img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+
+        .small-img img{
+            width:100%;
+            height:320px;
+            object-fit:cover;
         }
-        
-        .about-image img:hover {
-            transform: scale(1.02);
+
+        /* FOOTER */
+
+        .footer{
+            background:#000;
+            padding:35px 20px;
         }
-        
-        .about-content {
-            flex: 1;
-            min-width: 280px;
+
+        .footer-container{
+            max-width:1200px;
+            margin:auto;
+            text-align:center;
         }
-        
-        /* Brand Logo Large - Centered at Top */
-        .brand-logo-large {
-            text-align: center;
-            margin-bottom: 4rem;
+
+        .footer-logo{
+            display:inline-block;
+            color:#fff;
+            border:1px solid #fff;
+            padding:5px 15px;
+            text-decoration:none;
+            font-weight:700;
+            margin-bottom:25px;
         }
-        
-        .brand-logo-large .logo-text {
-            font-size: 3rem;
-            font-weight: 800;
-            letter-spacing: 4px;
-            color: #111111;
-            display: inline-block;
-            border: 3px solid #111111;
-            padding: 15px 35px;
+
+        .footer-links{
+            display:flex;
+            justify-content:center;
+            gap:25px;
+            margin-bottom:20px;
+            flex-wrap:wrap;
         }
-        
-        /* Story Section Styling */
-        .story-title {
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            margin-bottom: 1.5rem;
-            color: #111111;
+
+        .footer-links a{
+            color:#aaa;
+            text-decoration:none;
+            font-size:0.8rem;
         }
-        
-        .story-text {
-            color: #555555;
-            font-size: 0.95rem;
-            line-height: 1.8;
+
+        .footer-links a:hover{
+            color:#fff;
         }
-        
-        /* Mission Section Styling */
-        .mission-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            margin-bottom: 1.5rem;
-            color: #111111;
+
+        .footer-copyright{
+            color:#666;
+            font-size:0.7rem;
         }
-        
-        .mission-text {
-            color: #555555;
-            font-size: 0.95rem;
-            line-height: 1.8;
-        }
-        
-        /* Bottom Brand Centered */
-        .bottom-brand {
-            text-align: center;
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid #eeeeee;
-        }
-        
-        .bottom-brand .brand-text {
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            color: #111111;
-        }
-        
-        /* Footer */
-        .footer {
-            background-color: #111111;
-            padding: 2rem 2rem 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .footer-logo {
-            display: inline-block;
-            font-size: 1rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: #ffffff !important;
-            border: 1px solid #ffffff;
-            padding: 4px 12px;
-            text-decoration: none;
-            margin-bottom: 1.5rem;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
-        }
-        
-        .footer-links a {
-            color: #aaaaaa;
-            text-decoration: none;
-            font-size: 0.7rem;
-            letter-spacing: 1px;
-        }
-        
-        .footer-links a:hover {
-            color: #ffffff;
-        }
-        
-        .footer-copyright p {
-            color: #666666;
-            font-size: 0.6rem;
-            letter-spacing: 1px;
-            margin: 0;
-        }
-        
-        @media (max-width: 992px) {
-            .navbar-toggler {
-                display: block;
-                order: 2;
+
+        /* MOBILE */
+
+        @media(max-width:900px){
+
+            .about-row{
+                flex-direction:column;
             }
-            .right-icons {
-                order: 1;
+
+            .about-image-large,
+            .about-content-large,
+            .mission-box,
+            .small-img{
+                width:100%;
             }
-            .left-section {
-                order: 0;
-                flex: 1;
+
+            .about-image-large img{
+                height:350px;
             }
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                margin-top: 1rem;
+
+            .small-img img{
+                height:300px;
             }
-            .nav-links.show {
-                display: flex;
+
+            .story-title,
+            .mission-title{
+                font-size:2rem;
             }
-            .about-row {
-                flex-direction: column;
-                gap: 2rem;
+
+            .story-text,
+            .mission-text{
+                font-size:1rem;
             }
-            .about-row.reverse {
-                flex-direction: column;
+
+            .nav-links{
+                display:none;
             }
-            .brand-logo-large .logo-text {
-                font-size: 2rem;
-                padding: 10px 25px;
-            }
-            .story-title {
-                font-size: 1.5rem;
-            }
-            .mission-title {
-                font-size: 1.3rem;
-            }
-            .bottom-brand .brand-text {
-                font-size: 1.5rem;
-            }
+
         }
-        
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 0.8rem 1rem;
-            }
-            .navbar-brand {
-                font-size: 1rem;
-                padding: 4px 12px;
-            }
-            .breadcrumb {
-                padding: 1rem 1rem 0;
-            }
-            .about-wrapper {
-                padding: 2rem 1rem 3rem;
-            }
-            .brand-logo-large .logo-text {
-                font-size: 1.5rem;
-                padding: 8px 20px;
-                border-width: 2px;
-            }
-            .story-title {
-                font-size: 1.2rem;
-                letter-spacing: 2px;
-            }
-            .story-text {
-                font-size: 0.85rem;
-            }
-            .mission-title {
-                font-size: 1.1rem;
-            }
-            .mission-text {
-                font-size: 0.85rem;
-            }
-            .bottom-brand .brand-text {
-                font-size: 1.2rem;
-            }
-            .footer {
-                padding: 1.5rem 1rem 1rem;
-            }
-            .footer-links {
-                gap: 1rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .navbar-brand {
-                font-size: 0.85rem;
-                padding: 3px 10px;
-            }
-            .brand-logo-large .logo-text {
-                font-size: 1.2rem;
-                padding: 6px 15px;
-            }
-            .story-title {
-                font-size: 1rem;
-            }
-            .mission-title {
-                font-size: 1rem;
-            }
-            .bottom-brand .brand-text {
-                font-size: 1rem;
-            }
-        }
+
     </style>
+
 </head>
+
 <body>
 
- 
+<!-- NAVBAR -->
+
 <nav class="navbar">
+
     <div class="container-fluid">
+
         <div class="left-section">
+
             <a class="navbar-brand" href="index.html">696 DEPT</a>
-            <div class="nav-links" id="navLinks">
+
+            <div class="nav-links">
+
                 <a class="nav-link" href="index.html">HOME</a>
                 <a class="nav-link" href="shop.html">SHOP</a>
                 <a class="nav-link" href="about.html">ABOUT</a>
                 <a class="nav-link" href="contact.html">CONTACT</a>
+
             </div>
+
         </div>
+
         <div class="right-icons">
-            <button class="search-btn-header" onclick="openSearchModal()"><i class="fas fa-search"></i></button>
+
+            <button class="search-btn-header">
+                <i class="fas fa-search"></i>
+            </button>
+
             <div class="cart-wrapper">
-                <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cartCount">0</span></a>
+
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                </a>
+
+                <span class="cart-count">0</span>
+
             </div>
+
         </div>
-        <button class="navbar-toggler" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+
     </div>
+
 </nav>
 
- 
-<div id="searchModal" class="search-modal">
-    <span class="close-search" onclick="closeSearchModal()">&times;</span>
-    <div class="search-modal-content">
-        <input type="text" id="searchInput" class="search-modal-input" placeholder="Search products...">
-        <button onclick="performSearch()" style="margin-top: 20px; background: white; border: none; padding: 10px 30px; cursor: pointer; font-weight: 600;">SEARCH</button>
-    </div>
-</div>
+<!-- BREADCRUMB -->
 
- 
 <div class="breadcrumb">
+
     <a href="index.html">HOME</a>
-    <span class="separator">></span>
+
+    <span class="separator">/</span>
+
     <span>ABOUT</span>
+
 </div>
 
- 
-<div class="about-wrapper">   
- 
+<!-- ABOUT SECTION -->
+
+<div class="about-wrapper">
+
+    <!-- TOP SECTION -->
+
     <div class="about-row">
-        <div class="about-image">
-            <img src="images/about.jpg" alt="696 DEPT Store" id="storyImage">
+
+        <div class="about-image-large">
+
+            <img src="images/about.jpg" alt="696 DEPT">
+
         </div>
-        <div class="about-content">
+
+        <div class="about-content-large">
+
             <h1 class="story-title">OUR STORY</h1>
- <p class="story-text" style="font-weight: 700; color: #111111; line-height: 1.8;">
-    696 DEPT is more than a brand. It's a statement.Inspired by street culture,
-	 built for creatives and dreamers.
-	 We create pieces that speak loud without saying a word.
-   
-</p>
-       </div>
-    </div>
-    
-   
-    <div class="about-row reverse">
-        <div class="about-image">
-            <img src="images/about 1.jpg" alt="696 DEPT Culture" id="missionImage">
+
+            <p class="story-text">
+
+                696 DEPT is more than a brand.<br>
+
+                It’s a statement. Inspired by street culture,
+                built for creatives and dreamers.<br>
+
+                We create pieces that speak loud
+                without saying a word.
+
+            </p>
+
         </div>
-		<div class="about-image">
-            <img src="images/about 2.jpg" alt="696 DEPT Culture" id="missionImage">
-        </div>
-        <div class="about-content">
-            <h2 class="mission-title">
-			<br>MISSION</br>
-			</h2>
-            <p class="mission-text" style="font-weight: 700; color: #111111; line-height: 1.8;">
-    To build timeless streetwear that empowers self expression and connects culture. 
-    We strive to create clothing that tells a story, inspires confidence, and brings 
-    people together through shared identity and creative energy. Every stitch, every 
-    graphic, and every piece is designed with purpose to make you feel seen, heard, 
-    and unforgettable. At 696 DEPT, we don't just follow trends; we set them. We are 
-    building a movement where fashion meets freedom, and culture meets courage.
-</p>
-        </div>
+
     </div>
-    
- 
-    <div class="bottom-brand">
-        <div class="brand-text">696 DEPT</div>
+
+    <!-- SECOND SECTION -->
+
+    <div class="about-row">
+
+        <div class="mission-box">
+
+            <h2 class="mission-title">MISSION</h2>
+
+            <p class="mission-text">
+
+                To build timeless streetwear that empowers
+                self expression and connects culture.
+
+            </p>
+
+        </div>
+
+        <div class="small-img">
+
+            <img src="images/about 1.jpg" alt="696 DEPT">
+
+        </div>
+
+        <div class="small-img">
+
+            <img src="images/about 2.jpg" alt="696 DEPT">
+
+        </div>
+
     </div>
+
 </div>
 
- 
+<!-- FOOTER -->
+
 <footer class="footer">
+
     <div class="footer-container">
-        <div class="footer-brand">
-            <a href="index.html" class="footer-logo">696 DEPT</a>
-        </div>
+
+        <a href="index.html" class="footer-logo">696 DEPT</a>
+
         <div class="footer-links">
+
             <a href="index.html">HOME</a>
             <a href="shop.html">SHOP</a>
             <a href="about.html">ABOUT</a>
             <a href="contact.html">CONTACT</a>
+
         </div>
+
         <div class="footer-copyright">
-            <p>© 2025 696 DEPT — BUILT FROM NOTHING</p>
+
+            © 2025 696 DEPT — BUILT FROM NOTHING
+
         </div>
+
     </div>
+
 </footer>
 
-<script>
-    function updateCartCount() {
-        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-        const elem = document.getElementById('cartCount');
-        if (elem) elem.innerText = totalItems;
-    }
-    
-    function toggleMobileMenu() {
-        document.getElementById('navLinks').classList.toggle('show');
-    }
-    
-    function openSearchModal() {
-        document.getElementById('searchModal').classList.add('active');
-        setTimeout(() => { document.getElementById('searchInput').focus(); }, 100);
-    }
-    
-    function closeSearchModal() {
-        document.getElementById('searchModal').classList.remove('active');
-    }
-    
-    function performSearch() {
-        const term = document.getElementById('searchInput').value.trim();
-        if (term) window.location.href = `shop.html?search=${encodeURIComponent(term)}`;
-        closeSearchModal();
-    }
-    
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closeSearchModal();
-    });
-    
-    document.addEventListener('DOMContentLoaded', function() {
-        updateCartCount();
-    });
-</script>
 </body>
 </html>
