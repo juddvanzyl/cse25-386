@@ -43,6 +43,7 @@
             align-items: center;
             justify-content: space-between;
             width: 100%;
+            flex-wrap: wrap;
         }
         
         .left-section {
@@ -70,6 +71,7 @@
             margin: 0;
             padding: 0;
             list-style: none;
+            flex-wrap: wrap;
         }
         
         .nav-link {
@@ -186,26 +188,25 @@
             cursor: pointer;
         }
         
-.hero {
-    min-height: 100vh;
-    width: 100%;
-    background-image: url('images/hero-bg.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    /* High Resolution Fixes */
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0 2rem 0 8rem;
-}
+        .hero {
+            min-height: 100vh;
+            width: 100%;
+            background-image: url('images/hero-bg.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 2rem 0 8rem;
+        }
         
         /* Dark overlay gradient - REMOVED to make text black */
         .hero::before {
@@ -398,7 +399,7 @@
             margin: 0;
         }
         
-        /* ========== RESPONSIVE STYLES ========== */
+        /* ========== RESPONSIVE STYLES - MOBILE FRIENDLY ========== */
         @media (max-width: 992px) {
             .navbar {
                 position: relative;
@@ -461,6 +462,14 @@
             .hero h1 br {
                 display: none;
             }
+            
+            .product-grid {
+                gap: 1.5rem;
+            }
+            
+            .product-card {
+                min-width: 180px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -475,6 +484,7 @@
             
             .hero {
                 padding: 0 1.5rem;
+                min-height: 80vh;
             }
             
             .hero h1 {
@@ -494,10 +504,24 @@
             
             .product-grid {
                 gap: 1rem;
+                padding: 0 1rem;
             }
             
             .product-card {
                 min-width: 160px;
+                max-width: 100%;
+            }
+            
+            .product-title {
+                font-size: 0.9rem;
+            }
+            
+            .featured-section {
+                padding: 3rem 1rem 4rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.1rem;
             }
             
             .footer {
@@ -509,14 +533,40 @@
             }
         }
         
-        @media (max-width: 480px) {
+        @media (max-width: 576px) {
             .navbar-brand {
-                font-size: 0.85rem;
+                font-size: 0.9rem;
                 padding: 3px 10px;
+            }
+            
+            .search-btn-header, .cart-icon {
+                padding: 5px 8px;
+                font-size: 1rem;
+            }
+            
+            .hero {
+                min-height: 70vh;
+                padding: 0 1rem;
             }
             
             .hero h1 {
                 font-size: 1.8rem;
+                letter-spacing: 1px;
+            }
+            
+            .hero .tagline {
+                font-size: 0.6rem;
+                letter-spacing: 1px;
+                margin-bottom: 1.5rem;
+            }
+            
+            .btn-shop {
+                padding: 8px 20px;
+                font-size: 0.65rem;
+            }
+            
+            .product-grid {
+                gap: 0.8rem;
             }
             
             .product-card {
@@ -525,6 +575,30 @@
             
             .product-title {
                 font-size: 0.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1rem;
+                letter-spacing: 2px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .navbar-brand {
+                font-size: 0.85rem;
+                padding: 3px 10px;
+            }
+            
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .product-card {
+                min-width: 130px;
+            }
+            
+            .product-title {
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -579,19 +653,19 @@
     <div class="product-grid" id="featuredProducts">
         <div class="product-card" onclick="viewProduct(1)">
             <div class="product-image">
-                <img src="images/White 696.jpg" alt="F33 T-Shirt">
+                <img src="images/brown 696.jpg" alt="F35 T-Shirt">
             </div>
             <div class="product-title">P299</div>
         </div>
         <div class="product-card" onclick="viewProduct(2)">
             <div class="product-image">
-                <img src="images/home tshirt 2.jpg" alt="F36 T-Shirt">
+                <img src="images/home tshirt 3.jpg" alt="F36 T-Shirt">
             </div>
             <div class="product-title">P299</div>
         </div>
         <div class="product-card" onclick="viewProduct(3)">
             <div class="product-image">
-                <img src="images/home tshirt 3.jpg" alt="F38 T-Shirt">
+                <img src="images/brown tshirt graphic.jpg" alt="F38 T-Shirt">
             </div>
             <div class="product-title">P299</div>
         </div>
@@ -604,7 +678,6 @@
     </div>
 </section>
 
-<!-- Footer -->
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-brand">
@@ -623,16 +696,15 @@
 </footer>
 
 <script>
-    // Product database mapping for homepage featured products
+ 
     const featuredProductsMap = {
-        4: { id: 4, name: "Worldwide Tee", price: 299, image: "images/White 696.jpg" },
-        8: { id: 8, name: "Street Code", price: 299, image: "images/home tshirt 2.jpg" },
-        2: { id: 2, name: "Classic 696 Tee", price: 299, image: "images/home tshirt 3.jpg" },
+        4: { id: 4, name: "Worldwide Tee", price: 299, image: "images/brown 696.jpg" },
+        8: { id: 8, name: "Street Code", price: 299, image: "images/home tshirt 3.jpg" },
+        2: { id: 2, name: "Classic 696 Tee", price: 299, image: "images/brown tshirt graphic.jpg" },
         1: { id: 1, name: "Spalter 696 Tee", price: 299, image: "images/home tshirts.jpg" }
     };
     
     function viewProduct(id) {
-        // Redirect to product page with the correct product ID
         window.location.href = `product.html?id=${id}`;
     }
     
