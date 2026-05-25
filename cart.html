@@ -26,7 +26,6 @@
             color: #111111;
         }
         
-        /* Navigation */
         .navbar {
             background-color: #ffffff;
             padding: 1rem 2rem;
@@ -132,7 +131,6 @@
             font-size: 1.5rem;
         }
         
-        /* Search Modal */
         .search-modal {
             display: none;
             position: fixed;
@@ -177,7 +175,6 @@
             cursor: pointer;
         }
         
-        /* Toast Notification - Top Right Popup */
         .toast-notification {
             position: fixed;
             top: 90px;
@@ -236,7 +233,6 @@
             color: #ffffff;
         }
         
-        /* Breadcrumb */
         .breadcrumb {
             padding: 1.5rem 2rem 0;
             background: transparent;
@@ -262,7 +258,6 @@
             color: #aaaaaa;
         }
         
-        /* Cart Container */
         .cart-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -277,7 +272,6 @@
             color: #111111;
         }
         
-        /* Cart Layout */
         .cart-layout {
             display: flex;
             gap: 3rem;
@@ -289,7 +283,6 @@
             min-width: 300px;
         }
         
-        /* Cart Table Header */
         .cart-header {
             display: grid;
             grid-template-columns: 3fr 1fr 1fr 1fr;
@@ -302,7 +295,6 @@
             color: #888888;
         }
         
-        /* Cart Item */
         .cart-item {
             display: grid;
             grid-template-columns: 3fr 1fr 1fr 1fr;
@@ -410,7 +402,6 @@
             color: #ff3366;
         }
         
-        /* Order Summary */
         .order-summary-section {
             flex: 1;
             min-width: 280px;
@@ -498,7 +489,6 @@
             margin-bottom: 1.5rem;
         }
         
-        /* Footer */
         .footer {
             background-color: #111111;
             padding: 2rem 2rem 1.5rem;
@@ -549,7 +539,6 @@
             margin: 0;
         }
         
-        /* Mobile Responsive */
         @media (max-width: 992px) {
             .navbar-toggler {
                 display: block;
@@ -637,8 +626,7 @@
     </style>
 </head>
 <body>
-
-<!-- Toast Notification Popup - Top Right Corner -->
+    
 <div id="toastNotification" class="toast-notification">
     <div class="toast-icon">
         <i class="fas fa-check" style="font-size: 10px;"></i>
@@ -652,7 +640,6 @@
     </div>
 </div>
 
-<!-- Navigation -->
 <nav class="navbar">
     <div class="container-fluid">
         <div class="left-section">
@@ -674,7 +661,6 @@
     </div>
 </nav>
 
-<!-- Search Modal -->
 <div id="searchModal" class="search-modal">
     <span class="close-search" onclick="closeSearchModal()">&times;</span>
     <div class="search-modal-content">
@@ -817,7 +803,6 @@
             return;
         }
         
-        // Calculate totals
         let subtotal = 0;
         cart.forEach(item => {
             subtotal += item.price * item.quantity;
@@ -825,7 +810,6 @@
         const shipping = subtotal > 0 ? 50 : 0;
         const total = subtotal + shipping;
         
-        // Build cart HTML
         let cartHTML = `
             <div class="cart-layout">
                 <div class="cart-items-section">
