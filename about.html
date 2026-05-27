@@ -1,376 +1,445 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About | 696 DEPT</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>About | 696 DEPT</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
-  <style>
+    <style>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
 
-    body{
-      font-family:'Oswald', sans-serif;
-      background:#f5f5f5;
-      color:#111;
-    }
+        body{
+            font-family:'Montserrat', sans-serif;
+            background:#f5f5f5;
+            color:#111;
+            overflow-x:hidden;
+        }
 
-    /* ================= NAVBAR ================= */
+        /* ================= NAVBAR ================= */
 
-    .navbar{
-      width:100%;
-      background:white;
-      border-bottom:1px solid #dcdcdc;
-      padding:18px 25px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
+        .navbar{
+            width:100%;
+            background:#f5f5f5;
+            border-bottom:1px solid #dcdcdc;
+            padding:18px 40px;
+        }
 
-    .nav-left{
-      display:flex;
-      align-items:center;
-      gap:60px;
-    }
+        .nav-container{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            flex-wrap:wrap;
+        }
 
-    .logo{
-      border:2px solid black;
-      padding:8px 10px;
-      font-size:20px;
-      font-weight:700;
-      text-decoration:none;
-      color:black;
-    }
+        .logo{
+            border:2px solid #111;
+            padding:8px 14px;
+            font-weight:800;
+            font-size:1.5rem;
+            text-decoration:none;
+            color:#111;
+        }
 
-    .nav-links{
-      display:flex;
-      gap:40px;
-    }
+        .nav-links{
+            display:flex;
+            align-items:center;
+            gap:35px;
+            list-style:none;
+        }
 
-    .nav-links a{
-      text-decoration:none;
-      color:#111;
-      font-size:15px;
-      letter-spacing:1px;
-      position:relative;
-    }
+        .nav-links a{
+            text-decoration:none;
+            color:#111;
+            font-size:0.85rem;
+            font-weight:600;
+            letter-spacing:1px;
+            transition:0.3s;
+        }
 
-    .nav-links a.active::after{
-      content:'';
-      position:absolute;
-      left:0;
-      bottom:-8px;
-      width:100%;
-      height:2px;
-      background:black;
-    }
+        .nav-links a:hover{
+            color:#777;
+        }
 
-    .nav-icons{
-      display:flex;
-      gap:25px;
-      font-size:22px;
-      cursor:pointer;
-    }
+        .active-link{
+            border-bottom:2px solid #111;
+            padding-bottom:4px;
+        }
 
-    /* ================= BREADCRUMB ================= */
+        .nav-icons{
+            display:flex;
+            align-items:center;
+            gap:18px;
+        }
 
-    .breadcrumb{
-      padding:25px;
-      font-size:14px;
-      letter-spacing:1px;
-      display:flex;
-      gap:12px;
-    }
+        .nav-icons i{
+            font-size:1.2rem;
+            cursor:pointer;
+        }
 
-    .breadcrumb span{
-      color:#888;
-    }
+        /* ================= BREADCRUMB ================= */
 
-    /* ================= ABOUT SECTION ================= */
+        .breadcrumb{
+            padding:25px 40px 10px;
+            font-size:0.8rem;
+            font-weight:500;
+        }
 
-    .about-container{
-      width:100%;
-      padding:0 25px 40px;
-    }
+        .breadcrumb span{
+            color:#777;
+        }
 
-    .top-section{
-      display:flex;
-      gap:30px;
-      margin-bottom:35px;
-    }
+        /* ================= ABOUT SECTION ================= */
 
-    .top-image{
-      flex:1.3;
-    }
+        .about-container{
+            max-width:1400px;
+            margin:auto;
+            padding:20px 40px 60px;
+        }
 
-    .top-image img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-    }
+        .top-section{
+            display:flex;
+            gap:40px;
+            align-items:center;
+            margin-bottom:60px;
+            flex-wrap:wrap;
+        }
 
-    .story-section{
-      flex:1;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-    }
+        .top-image{
+            flex:1;
+            min-width:300px;
+        }
 
-    .story-section h1{
-      font-size:50px;
-      margin-bottom:25px;
-      font-weight:700;
-    }
+        .top-image img{
+            width:100%;
+            display:block;
+            object-fit:cover;
+        }
 
-    .story-section p{
-      font-size:28px;
-      line-height:1.8;
-      color:#333;
-      font-weight:300;
-    }
+        .story-text{
+            flex:1;
+            min-width:300px;
+        }
 
-    /* ================= BOTTOM SECTION ================= */
+        .story-text h1{
+            font-size:2.5rem;
+            margin-bottom:25px;
+            font-weight:800;
+        }
 
-    .bottom-section{
-      display:flex;
-      gap:30px;
-      align-items:flex-start;
-    }
+        .story-text p{
+            font-size:1rem;
+            line-height:2;
+            color:#333;
+        }
 
-    .mission{
-      flex:0.8;
-      padding-top:40px;
-    }
+        /* ================= BOTTOM SECTION ================= */
 
-    .mission h2{
-      font-size:48px;
-      margin-bottom:25px;
-    }
+        .bottom-section{
+            display:flex;
+            gap:30px;
+            flex-wrap:wrap;
+            align-items:flex-start;
+        }
 
-    .mission p{
-      font-size:28px;
-      line-height:1.8;
-      color:#333;
-      font-weight:300;
-    }
+        .mission-box{
+            flex:1;
+            min-width:250px;
+            padding-top:30px;
+        }
 
-    .bottom-images{
-      flex:2;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:20px;
-    }
+        .mission-box h2{
+            font-size:2rem;
+            margin-bottom:25px;
+            font-weight:800;
+        }
 
-    .bottom-images img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-    }
+        .mission-box p{
+            line-height:2;
+            color:#333;
+        }
 
-    /* ================= FOOTER ================= */
+        .image-grid{
+            flex:2;
+            display:grid;
+            grid-template-columns:repeat(2,1fr);
+            gap:20px;
+            min-width:300px;
+        }
 
-    footer{
-      margin-top:40px;
-      background:black;
-      color:white;
-      padding:28px 25px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      flex-wrap:wrap;
-    }
+        .image-grid img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            display:block;
+        }
 
-    .footer-left{
-      display:flex;
-      align-items:center;
-      gap:60px;
-    }
+        /* ================= FOOTER ================= */
 
-    .footer-logo{
-      font-size:30px;
-      font-weight:700;
-    }
+        footer{
+            background:#000;
+            color:#fff;
+            padding:35px 40px;
+            margin-top:60px;
+        }
 
-    .footer-links{
-      display:flex;
-      gap:35px;
-    }
+        .footer-container{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            flex-wrap:wrap;
+            gap:20px;
+        }
 
-    .footer-links a{
-      color:white;
-      text-decoration:none;
-      font-size:14px;
-      letter-spacing:1px;
-    }
+        .footer-logo{
+            font-size:1.8rem;
+            font-weight:800;
+        }
 
-    .socials{
-      display:flex;
-      gap:25px;
-      font-size:28px;
-    }
+        .footer-links{
+            display:flex;
+            gap:30px;
+            flex-wrap:wrap;
+        }
 
-    /* ================= RESPONSIVE ================= */
+        .footer-links a{
+            color:#fff;
+            text-decoration:none;
+            font-size:0.85rem;
+            transition:0.3s;
+        }
 
-    @media(max-width:1000px){
+        .footer-links a:hover{
+            color:#999;
+        }
 
-      .top-section{
-        flex-direction:column;
-      }
+        .social-icons{
+            display:flex;
+            gap:20px;
+        }
 
-      .bottom-section{
-        flex-direction:column;
-      }
+        .social-icons i{
+            font-size:1.5rem;
+            cursor:pointer;
+            transition:0.3s;
+        }
 
-      .bottom-images{
-        grid-template-columns:1fr;
-      }
+        .social-icons i:hover{
+            color:#999;
+        }
 
-      .story-section h1,
-      .mission h2{
-        font-size:38px;
-      }
+        /* ================= RESPONSIVE ================= */
 
-      .story-section p,
-      .mission p{
-        font-size:22px;
-      }
+        @media(max-width:992px){
 
-      .nav-links{
-        display:none;
-      }
+            .nav-container{
+                gap:20px;
+            }
 
-    }
+            .nav-links{
+                gap:20px;
+            }
 
-  </style>
+            .story-text h1{
+                font-size:2rem;
+            }
+
+            .mission-box h2{
+                font-size:1.7rem;
+            }
+
+        }
+
+        @media(max-width:768px){
+
+            .navbar{
+                padding:20px;
+            }
+
+            .breadcrumb{
+                padding:20px;
+            }
+
+            .about-container{
+                padding:20px;
+            }
+
+            .top-section{
+                flex-direction:column;
+            }
+
+            .bottom-section{
+                flex-direction:column;
+            }
+
+            .image-grid{
+                grid-template-columns:1fr;
+            }
+
+            .nav-links{
+                width:100%;
+                justify-content:center;
+                margin-top:15px;
+                flex-wrap:wrap;
+            }
+
+            .footer-container{
+                flex-direction:column;
+                text-align:center;
+            }
+
+            .footer-links{
+                justify-content:center;
+            }
+
+        }
+
+        @media(max-width:480px){
+
+            .logo{
+                font-size:1.2rem;
+            }
+
+            .story-text h1{
+                font-size:1.7rem;
+            }
+
+            .mission-box h2{
+                font-size:1.5rem;
+            }
+
+            .story-text p,
+            .mission-box p{
+                font-size:0.9rem;
+            }
+
+        }
+
+    </style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
+    <!-- NAVBAR -->
 
-  <nav class="navbar">
+    <nav class="navbar">
 
-    <div class="nav-left">
+        <div class="nav-container">
 
-      <a href="#" class="logo">696 DEPT</a>
+            <a href="#" class="logo">696 DEPT</a>
 
-      <div class="nav-links">
-        <a href="#">HOME</a>
-        <a href="#">SHOP</a>
-        <a href="#" class="active">ABOUT</a>
-        <a href="#">LOOKBOOK</a>
-        <a href="#">CONTACT</a>
-      </div>
+            <ul class="nav-links">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">SHOP</a></li>
+                <li><a href="#" class="active-link">ABOUT</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
 
+            <div class="nav-icons">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-bag-shopping"></i>
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- BREADCRUMB -->
+
+    <div class="breadcrumb">
+        HOME &nbsp; / &nbsp; <span>ABOUT</span>
     </div>
 
-    <div class="nav-icons">
-      <i class="fa-solid fa-magnifying-glass"></i>
-      <i class="fa-solid fa-bag-shopping"></i>
-    </div>
+    <!-- ABOUT -->
 
-  </nav>
+    <section class="about-container">
 
-  <!-- BREADCRUMB -->
+        <!-- TOP -->
 
-  <div class="breadcrumb">
-    HOME
-    <span>/</span>
-    ABOUT
-  </div>
+        <div class="top-section">
 
-  <!-- ABOUT CONTENT -->
+            <div class="top-image">
+                <img src="images/about 1.jpg" alt="696 Hoodie">
+            </div>
 
-  <section class="about-container">
+            <div class="story-text">
+                <h1>OUR STORY</h1>
 
-    <!-- TOP -->
+                <p>
+                    696 DEPT is more than a brand.<br><br>
 
-    <div class="top-section">
+                    It's a statement. Inspired by street culture,
+                    built for creatives and dreamers.<br><br>
 
-      <div class="top-image">
-        <img src="images/about 1.jpg" alt="">
-      </div>
+                    We create pieces that speak loud
+                    without saying a word.
+                </p>
+            </div>
 
-      <div class="story-section">
+        </div>
 
-        <h1>OUR STORY</h1>
+        <!-- BOTTOM -->
 
-        <p>
-          696 DEPT is more than a brand.<br>
-          It’s a statement. Inspired by street culture,<br>
-          built for creatives and dreamers.<br>
-          We create pieces that speak loud<br>
-          without saying a word.
-        </p>
+        <div class="bottom-section">
 
-      </div>
+            <div class="mission-box">
 
-    </div>
+                <h2>MISSION</h2>
 
-    <!-- BOTTOM -->
+                <p>
+                    To build timeless streetwear that empowers
+                    self-expression and connects culture.
+                </p>
 
-    <div class="bottom-section">
+            </div>
 
-      <div class="mission">
+            <div class="image-grid">
 
-        <h2>MISSION</h2>
+                <img src="images/about 2.jpg" alt="">
+                <img src="images/about 3.jpg" alt="">
 
-        <p>
-          To build timeless streetwear that<br>
-          empowers self-expression<br>
-          and connects culture.
-        </p>
+            </div>
 
-      </div>
+        </div>
 
-      <div class="bottom-images">
+    </section>
 
-        <img src="images/about 2.jpg" alt="">
-        <img src="images/about 3.jpg" alt="">
+    <!-- FOOTER -->
 
-      </div>
+    <footer>
 
-    </div>
+        <div class="footer-container">
 
-  </section>
+            <div class="footer-logo">
+                696 DEPT
+            </div>
 
-  <!-- FOOTER -->
+            <div class="footer-links">
+                <a href="#">HOME</a>
+                <a href="#">SHOP</a>
+                <a href="#">ABOUT</a>
+                <a href="#">CONTACT</a>
+            </div>
 
-  <footer>
+            <div class="social-icons">
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-tiktok"></i>
+                <i class="fa-brands fa-twitter"></i>
+            </div>
 
-    <div class="footer-left">
+        </div>
 
-      <div class="footer-logo">696 DEPT</div>
-
-      <div class="footer-links">
-        <a href="#">HOME</a>
-        <a href="#">SHOP</a>
-        <a href="#">ABOUT</a>
-        <a href="#">LOOKBOOK</a>
-        <a href="#">CONTACT</a>
-      </div>
-
-    </div>
-
-    <div class="socials">
-      <i class="fa-brands fa-instagram"></i>
-      <i class="fa-brands fa-tiktok"></i>
-      <i class="fa-brands fa-twitter"></i>
-    </div>
-
-  </footer>
+    </footer>
 
 </body>
 </html>
